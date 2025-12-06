@@ -30,6 +30,6 @@ test:
 production:
   adapter:postgresql
   url: <%= ENV['DATABASE_URL'] %>
-  pool:5
-  sslmomde:require
+  pool: 5
+  sslmomde: require
   # database: path/to/persistent/storage/production.sqlite3
