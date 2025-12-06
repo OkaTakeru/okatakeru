@@ -1,0 +1,139 @@
+/* ==================================== */
+/* 6. 投稿フォームデザイン (tweets/new.html) */
+/* ==================================== */
+
+/* フォーム全体を囲むコンテナ */
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.3); /* 炎の影 */
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #ffd700;
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #eee;
+    margin-bottom: 8px;
+    border-left: 3px solid #ff4500;
+    padding-left: 10px;
+}
+
+/* テキストフィールド、テキストエリア */
+.form-control, .form-control-file {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #eee;
+    box-sizing: border-box; /* paddingを幅に含める */
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #ff8c00;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+}
+
+/* --- タグ選択チップのデザイン --- */
+
+.tag-selection-group h3 {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.tag-selection-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-chip-wrapper {
+    /* collection_check_boxesは複数のdiv.form-checkを生成するため、これらをFlexアイテムとして扱う */
+    margin: 0; /* デフォルトマージンをリセット */
+}
+
+/* ラベル要素（チップの土台） */
+.tag-chip-label {
+    cursor: pointer;
+    background-color: #444;
+    border: 2px solid #555;
+    border-radius: 20px;
+    padding: 0;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    user-select: none;
+    line-height: 0;
+    display: inline-block; /* チップを横並びにする */
+}
+
+/* チェックボックスを非表示に */
+.tag-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* チップの内容（テキストとアイコン）の見た目 */
+.tag-chip-label .chip-content {
+    transition: all 0.2s ease-in-out;
+    padding: 8px 15px; 
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ccc;
+    line-height: normal; 
+}
+
+/* ホバー時のスタイル */
+.tag-chip-label:hover {
+    border-color: #ff8c00;
+    background-color: #3a3a3a;
+}
+
+/* 選択された（チェックボックスがONの）時のスタイル */
+.tag-checkbox:checked + .chip-content {
+    background: linear-gradient(to right, #ff4500, #ff8c00); 
+    color: white;
+    border-color: #ffd700; 
+    box-shadow: 0 2px 8px rgba(255, 69, 0, 0.6); 
+}
+
+/* アイコン */
+.tag-chip-label .chip-content i {
+    margin-right: 6px;
+    color: #ffcc00;
+}
+.tag-checkbox:checked + .chip-content i {
+    color: white;
+}
+
+/* 戻るリンク */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #ff8c00;
+}

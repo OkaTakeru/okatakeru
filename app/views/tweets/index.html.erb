@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>スポーツチーム診断</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <main class="main-content">
+        
+        <section class="description-section">
+            <div class="description-box">
+                <h2>運命のチームを探す旅に出よう！</h2>
+                <p>
+                    いくつかの質問に答えるだけで、あなたの性格や価値観にぴったりのスポーツチームを診断します。
+                    熱いドラマと感動が待っている場所を見つけましょう！
+                </p>
+                <%= link_to '診断する', posts_new_path, class: 'cta-button' %>
+            </div>
+        </section>
+
+        <section class="tag-section">
+            <h2>#キーワードから探す</h2>
+            <div class="tag-list chip-list">
+                <%= form_tag({controller:"tweets",action:"index"}, method: :get, class: 'tag-form') do %>
+                    
+                    <%# ★追加: リスト全体を囲むulタグを追加 %>
+                    <ul class="tag-chip-container">
+                        <% Tag.all.each do |t| %>
+                            <%# ★変更: 元のコードを維持し、クラス名を追加 %>
+                            <li class="tag-chip-li">
+                                <%= check_box :tag_ids, t.name, { class: 'tag-checkbox' } %>
+                                <span class="chip-content">
+                                    <i class="fas fa-fire"></i> #<%= t.name %>
+                                </span>
+                            </li>
+                        <% end %>
+                    </ul>
+
+                    <div class="tag-submit">
+                        <%= submit_tag 'キーワード検索', class: 'search-button' %>
+                    </div>
+                <% end %>
+            </div>
+        </section>
+        
+        <section class="tweet-list-section">
+            <h1>投稿</h1>
+            <h3>Tweet一覧</h3>
+            <%= link_to "投稿へ", tweets_new_path %>
+            <div class="tweets-container">
+                <% if defined?(@tweets) && @tweets.present? %>
+                    <% @tweets.each do |t| %>
+                        <div class="tweet">
+                            <%= t.body %>
+                            <%= t.created_at %>
+                            <%= link_to "詳細へ", tweet_path(t.id) %>
+                            <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

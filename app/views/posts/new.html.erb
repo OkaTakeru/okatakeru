@@ -1,0 +1,172 @@
+<div class="diagnosis-container">
+    <h2>運命のチーム診断</h2>
+
+    <%= form_tag(posts_index_path, method: :get, class: "diagnosis-form") do %>
+        
+        <div class="question-block">
+            <h3>Q.1 どのスポーツチームを探していますか？</h3>
+            <div class="answer-options sport-options">
+                <label class="radio-card">
+                    <%= radio_button_tag :sports, "1" %> 
+                    <span class="card-content">
+                        <i class="fas fa-football-ball"></i> サッカー
+                    </span>
+                </label>
+                <label class="radio-card">
+                    <%= radio_button_tag :sports, "2" %> 
+                    <span class="card-content">
+                        <i class="fas fa-baseball-ball"></i> 野球
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.2 性別？</h3>
+            <div class="answer-options">
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :sex, "1" %> 
+                    <span class="card-content">男</span>
+                </label>
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :sex, "2" %> 
+                    <span class="card-content">女</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="question-block">
+            <h3>Q.3 応援スタイル</h3>
+            <div class="answer-options">
+                <label class="radio-card">
+                    <%= radio_button_tag :ouen, "1" %> 
+                    <span class="card-content">大声観戦で楽しみたい</span>
+                </label>
+                <label class="radio-card">
+                    <%= radio_button_tag :ouen, "2" %> 
+                    <span class="card-content">ゆったり楽しみたい</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="question-block">
+            <h3>Q.4 勝つチームが好き？</h3>
+            <div class="answer-options">
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :win, "1" %> 
+                    <span class="card-content">はい</span>
+                </label>
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :win, "2" %> 
+                    <span class="card-content">いいえ</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.5 ユニフォーム</h3>
+            <div class="answer-options">
+                <label class="radio-card">
+                    <%= radio_button_tag :uni, "1" %> 
+                    <span class="card-content">派手なほうが好き</span>
+                </label>
+                <label class="radio-card">
+                    <%= radio_button_tag :uni, "2" %> 
+                    <span class="card-content">シンプルなほうが好き</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.6 スター選手は必要？</h3>
+            <div class="answer-options">
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :star, "1" %> 
+                    <span class="card-content">はい</span>
+                </label>
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :star, "2" %> 
+                    <span class="card-content">いいえ</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.7 好きな色？</h3>
+            <div class="answer-options color-options">
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :color, "1" %> 
+                    <span class="card-content">
+                        <span class="color-preview warm"></span> 暖色系
+                    </span>
+                </label>
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :color, "2" %> 
+                    <span class="card-content">
+                        <span class="color-preview cool"></span> 寒色系
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.8 監督のキャラ</h3>
+            <div class="answer-options">
+                <label class="radio-card">
+                    <%= radio_button_tag :kantoku, "1" %> 
+                    <span class="card-content">ガンガン攻める監督</span>
+                </label>
+                <label class="radio-card">
+                    <%= radio_button_tag :kantoku, "2" %> 
+                    <span class="card-content">じっくり策士系監督</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.9 チームに求めるもの</h3>
+            <div class="answer-options">
+                <label class="radio-card">
+                    <%= radio_button_tag :demand, "1" %> 
+                    <span class="card-content">とにかく点を取る攻撃力</span>
+                </label>
+                <label class="radio-card">
+                    <%= radio_button_tag :demand, "2" %> 
+                    <span class="card-content">相手を抑える守備力</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.10 お金をかけて勝ちに行くのは好き？</h3>
+            <div class="answer-options">
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :kane, "1" %> 
+                    <span class="card-content">はい</span>
+                </label>
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :kane, "2" %> 
+                    <span class="card-content">いいえ</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <h3>Q.11 若手育成を重視する？</h3>
+            <div class="answer-options">
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :wakate, "1" %> 
+                    <span class="card-content">はい</span>
+                </label>
+                <label class="radio-card half-width">
+                    <%= radio_button_tag :wakate, "2" %> 
+                    <span class="card-content">いいえ</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="submit-area">
+            <%= submit_tag '診断する', class: 'cta-button large-submit-button' %>
+        </div>
+    <% end %>
+</div>

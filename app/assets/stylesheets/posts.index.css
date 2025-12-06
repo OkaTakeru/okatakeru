@@ -1,0 +1,94 @@
+/* ==================================== */
+/* 5. 診断結果ページ (posts/index) */
+/* ==================================== */
+.result-page-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255, 69, 0, 0.2); /* 炎のような光を薄く */
+    text-align: center;
+}
+
+.result-page-container h2 {
+    color: #ffd700; /* ゴールド */
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.recommended-team-card {
+    background-color: #222;
+    padding: 40px;
+    border-radius: 10px;
+    border: 3px solid #444;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* チーム名と推奨テキスト */
+.team-recommendation {
+    font-size: 1.8em;
+    color: #eee;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+}
+
+.team-name {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ff4500; /* 情熱の赤 */
+    text-shadow: 0 0 5px rgba(255, 69, 0, 0.8);
+    display: block; /* チーム名を改行して強調 */
+    margin-top: 5px;
+}
+
+/* チーム画像表示エリア */
+.team-image-box {
+    width: 100%;
+    max-width: 600px; /* 画像の最大サイズを制限 */
+    height: auto;
+    max-height: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 5px solid #555;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.result-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像がボックスを埋めるようにトリミング */
+    display: block;
+}
+
+/* ボタンエリア */
+.action-buttons {
+    margin-top: 40px;
+}
+
+/* もう一度診断ボタン (トップページボタンのスタイルを流用) */
+.redo-button {
+    font-size: 1.5em; /* 少し小さめに調整 */
+    padding: 15px 40px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .result-page-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .result-page-container h2 {
+        font-size: 2em;
+    }
+    .team-recommendation {
+        font-size: 1.5em;
+    }
+    .team-name {
+        font-size: 1.1em;
+    }
+}

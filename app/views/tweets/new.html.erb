@@ -1,0 +1,40 @@
+<div class="form-container">
+    <h2>新規投稿</h2>
+
+    <%= form_for @tweet do |f| %>
+
+        <%# タグ選択部分にクラスを追加 %>
+        <div class='form-group tag-selection-group'>
+            <h3>投稿のキーワードを選択</h3>
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+                
+                <%# ラベル全体をチップとして扱う構造に修正 %>
+                <div class='form-check tag-chip-wrapper'>
+                    <%= tag.label class: 'form-check-label tag-chip-label' do %>
+                        <%# チェックボックス自体はCSSで非表示/移動 %>
+                        <%= tag.check_box class: 'form-check-input tag-checkbox' %>
+                        
+                        <%# チップの内容を表示する部分 %>
+                        <span class="chip-content">
+                            <i class="fas fa-bullhorn"></i> <%= tag.text %>
+                        </span>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="field form-group">
+            <%= f.label :body, "本文 (140文字以内)" %>
+            <%= f.text_area :body, class: 'form-control', rows: 4, placeholder: "熱い想いを投稿しよう！" %>
+        </div>
+
+        <div class="field form-group">
+            <%= f.label :image, "画像添付" %>
+            <%= f.file_field :image, class: 'form-control-file' %>
+        </div>
+
+        <%= f.submit '送信', class: 'cta-button large-submit-button' %>
+    <% end %>
+
+    <%= link_to "Tweet一覧に戻る", tweets_path, class: 'back-link' %>
+</div>

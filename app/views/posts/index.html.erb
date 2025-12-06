@@ -1,0 +1,30 @@
+<div class="result-page-container">
+    <h2>✨ あなたにおすすめのチーム診断結果 ✨</h2>
+
+    <% @posts.each do |t| %>
+        <% if t.number == @result %>
+            
+            <div class="recommended-team-card">
+                
+                <h3 class="team-recommendation">
+                    あなたにおすすめのチームは<span class="team-name"><%= t.content %></span>です！
+                </h3>
+                
+                <%# チーム画像（t.image_idに対応する画像）を大きく表示 %>
+                <div class="team-image-box">
+                    <%# cl_image_tagはCloudinaryを使用していると想定 %>
+                    <%= cl_image_tag(t.image_id, class: 'result-image', crop: :fill) %>
+                </div>
+                
+            </div>
+            
+        <% end %>
+    <% end %>
+
+    <div class="action-buttons">
+        <%= link_to 'もう一度診断', posts_new_path, class: 'cta-button large-submit-button redo-button' %>
+    </div>
+</div>
+
+
+

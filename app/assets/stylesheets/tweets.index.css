@@ -1,0 +1,236 @@
+/* 全体のリセットとベース設定 */
+body {
+    margin: 0;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: #111; 
+    color: #eee;
+}
+
+
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/assets/kousienn.png'); /* 熱狂的なスタジアムの画像URLに置き換えてください */
+    background-size: cover;
+    background-position: center;
+    padding: 150px 20px 80px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section h1 {
+    font-family: 'Impact', sans-serif; 
+    font-size: 4.5em;
+    color: #ffd700; 
+    text-shadow: 
+        0 0 5px #ff4500,  
+        0 0 15px rgba(255, 69, 0, 0.6); 
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.description-section {
+    padding: 50px 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/assets/kannkyaku.png');
+    text-align: center;
+    border-bottom: 5px solid #228b22; 
+}
+
+.description-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.4); 
+    border-radius: 10px;
+}
+
+.description-box h2 {
+    font-size: 2em;
+    color: #ff9900; 
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(to bottom, #ff7e5f, #fe4040);
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 5px 20px rgba(255, 69, 0, 0.7);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid white;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 69, 0, 0.9);
+}
+
+/* ==================================== */
+/* 3. タグセクション (4つの四角) */
+/* ==================================== */
+.tag-section {
+    padding: 60px 20px;
+    background-color: #222;
+    text-align: center;
+}
+
+.tag-list.chip-list {
+    margin-top: 30px;
+}
+
+/* ul要素をFlexboxコンテナとして設定 */
+.tag-chip-container {
+    list-style: none; /* リストの黒点を削除 */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; 
+}
+.tag-list {
+    display: flex;
+    flex-wrap: wrap; /* 要素を折り返して表示 */
+    justify-content: center; /* 中央寄せ */
+    gap: 20px; /* 四角間のスペース */
+    margin-top: 30px;
+    max-width: 1000px; /* 全体幅を制限 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* <li>要素（チップの土台）の基本スタイル */
+.tag-chip-li {
+    cursor: pointer;
+    background-color: #444;
+    border: 2px solid #555;
+    border-radius: 20px;
+    padding: 0; /* paddingは内部のspanに持たせる */
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    user-select: none;
+    line-height: 0; /* 行の高さをリセット */
+}
+
+/* チェックボックスの非表示（CSSで絶対非表示） */
+.tag-chip-li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    /* クリックを感知できるように width/height は残すか、親 li 全体をクリック可能にする */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2; /* chip-contentより手前に */
+}
+
+.chip-content {
+    transition: all 0.2s ease-in-out;
+    padding: 10px 20px; /* 見た目のpadding */
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ccc;
+    height: 100%;
+    line-height: normal; /* テキストの行高さを戻す */
+}
+
+.tag-chip-li:hover {
+    border-color: #ff8c00; 
+    background-color: #3a3a3a;
+}
+
+/* 選択された（チェックボックスがONの）時のスタイル */
+/* input:checked の後に続く要素（この場合、チェックボックスの後の chip-content）に適用 */
+.tag-chip-li input[type="checkbox"]:checked ~ .chip-content {
+    background: linear-gradient(to right, #ff4500, #ff8c00); 
+    color: white;
+    border-color: #ffd700; 
+    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.5); 
+    transform: translateY(-2px);
+}
+
+/* アイコン（Font Awesomeの炎アイコンを想定） */
+.chip-content .fa-fire {
+    margin-right: 8px;
+    color: #ffcc00;
+    transition: color 0.2s;
+}
+
+/* 選択された時のアイコンの色変更 */
+.tag-chip-li input[type="checkbox"]:checked ~ .chip-content .fa-fire {
+    color: white;
+}
+
+.tag-form {
+    display: contents; /* ラベル/チェックボックスをフレックスアイテムとして扱う */
+}
+
+
+/* 検索ボタン */
+.tag-submit {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.search-button {
+    background: linear-gradient(to right, #3399ff, #0066cc); /* 青系のグラデーション */
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.search-button:hover {
+    background: linear-gradient(to right, #0066cc, #3399ff);
+    transform: translateY(-2px);
+}
+
+
+/* レスポンシブ対応 (必要に応じて) */
+@media (max-width: 768px) {
+    .tag-item {
+        width: calc(50% - 20px); /* 2列表示 */
+    }
+}
+
+@media (max-width: 480px) {
+    .tag-item {
+        width: calc(100% - 20px); /* 1列表示 */
+    }
+}
+
+.search-button {
+    background-color: #3399ff;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tweet-list-section {
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+}
+
+.tweets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+}
+
+.tweet {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #ff4500; 
+}
